@@ -1,8 +1,9 @@
 """
 Selection Sort Steps
-1.  Consider the array as two parts: Sorted(initially empty) and Unsorted(initially the entire array).
-2.  Starting from the first unsorted number in the array, find the smallest number in the unsorted part.
-3.  Swap it with the first unsorted number, and repeat the process until the entire array is sorted.
+1.  Consider the array as two parts: Sorted (initially empty) and Unsorted (initially the entire array).
+2.  Starting from the first number in the Unsorted portion, find the smallest number in the remaining Unsorted part.
+3.  Swap the smallest number with the first unsorted number. Move the boundary between the Sorted and Unsorted parts by one, 
+    and repeat this process until the entire array is sorted.
 """
 def selection_sort_function(array):
     """
