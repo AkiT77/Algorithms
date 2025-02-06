@@ -17,8 +17,12 @@ def insertion_sort_function(array):
         array (list[int]): The sorted array.
     
     Complexity:
-        Time Complexity: O(N^2) 
-        since the array is halved at each step
+        Time Complexity: 
+            Best case: O(N)
+            - When the input array is already sorted.
+            Worst case: O(N^2) 
+            - When the input array is already sorted.
+            Average case: O(N^2) 
 
         Space Complexity: O(N) 
         - input space + auxiliary space = O(N) + O(1) = O(N)
