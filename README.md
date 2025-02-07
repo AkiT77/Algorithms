@@ -1,7 +1,7 @@
 # Algorithms
 A collection of common algorithms implemented in Python
 
-ListofAlgorithms  
+List of Algorithms  
  1 BinarySearch  
  2 Selectionsort   
  3 Insertionsort   
