@@ -1,5 +1,6 @@
 import unittest
 from merge_and_count_split_inversion import merge_and_count_split_inversion_function
+
 class TestBinarySearch(unittest.TestCase):
     def test_one_figure(self):
         """Test case of one figure multiplication"""

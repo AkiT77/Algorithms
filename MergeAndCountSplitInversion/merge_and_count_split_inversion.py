@@ -3,10 +3,24 @@ Merge and count split inversion function is an extension of the merge algorithm.
 In addition to merging two sorted arrays, it also counts the number of inversion pairs
 that occur between the two arrays during the merge process.
 
-What is inversion pair, for example:
-An inversion pair consists of two elements where:
-- One element is larger than the other, and
-- The larger element appears before the smaller one when merging the two sorted arrays.
+What is an Inversion Pair?
+
+Consider the array:
+    C = [2, 4, 8, 3, 4, 5]
+
+In this example:
+    - (4, 3), (8, 3), (8, 4), and (8, 5) are inversion pairs.
+
+However, in the "Merge and Count Split Inversion" function, inversion pairs are treated slightly differently:
+    -   The "Sort and Count Inversion" algorithm, which utilizes the "Merge and Count Split Inversion" function, 
+        works recursively by dividing the array into halves during the merge process.
+    -   Even though the array is split into two sub-arrays, 
+        we treat them as part of the whole array and apply a more efficient method to count inversions during the merge step.
+
+In the "Merge and Count Split Inversion" function, an inversion pair is defined as:
+    - A pair of elements where:
+        1. One element is larger than the other.
+        2. The larger element appears before the smaller element when merging the two sorted sub-arrays.
 
 For example:
     A = [2, 4, 8]
@@ -31,6 +45,7 @@ Where:
     - Subtracting i ensures that we count only those elements in A that are yet to be processed 
       and that are larger than the current element in B.
 """
+
 def merge_and_count_split_inversion_function(A, B):
     """
     Merge two sorted array into ascending order and return the number of inversions
