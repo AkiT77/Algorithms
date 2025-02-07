@@ -2,7 +2,7 @@
 A collection of common algorithms implemented in Python
 
 ListofAlgorithms
- 1 BinarySearch
+ 1 BinarySearch  
  2 Selectionsort 
  3 Insertionsort 
  4 Karatsuba’smultiplicationalgorithm
