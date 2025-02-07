@@ -36,8 +36,7 @@ def merge_function(A, B):
         Need extra space to store the merged result array
     """
     result = []
-    i = 0
-    j = 0
+    i = j = 0
     n1 = len(A) - 1
     n2 = len(B) - 1
     while i <= n1 or j <= n2:
