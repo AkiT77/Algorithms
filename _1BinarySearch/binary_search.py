@@ -12,13 +12,13 @@ def binary_search_function(array, key):
     
     Complexity:
         Time Complexity: O(log n) 
-        since the array is halved at each step
+        -   since the array is halved at each step
 
-        Space Complexity: O(1) 
-        constant space, no extra data structures
+        Space Complexity: O(N) 
+        -   input space + auxiliary space = O(N) + O(1) = O(N)
         
         Auxiliary Space: O(1) 
-        constant space
+        -   constant space
     """
     lo = 0 
     hi = len(array) - 1

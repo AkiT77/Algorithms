@@ -25,10 +25,10 @@ def insertion_sort_function(array):
             Average case: O(N^2) 
 
         Space Complexity: O(N) 
-        - input space + auxiliary space = O(N) + O(1) = O(N)
+        -   input space + auxiliary space = O(N) + O(1) = O(N)
         
         Auxiliary Space: O(1) 
-        - Constant space needed
+        -   Constant space needed
 
     """
     for i in range(1, len(array)):
