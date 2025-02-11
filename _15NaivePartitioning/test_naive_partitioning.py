@@ -20,7 +20,7 @@ class TestBinarySearch(unittest.TestCase):
         array = [1, 2, 3, 4, 5]
         pivot = 6
         result = naive_partitioning_function(array, pivot)
-        self.assertEqual(result, 0)  
+        self.assertEqual(result, None)  
 
     def test_pivot_largest_element(self):
         """Test case of pivot is the largest element in the array"""

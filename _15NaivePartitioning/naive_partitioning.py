@@ -39,7 +39,7 @@ def naive_partitioning_function(array, pivot):
 
     array = left + pivots + right # Concatenate the arrays
     if len(pivots) == 0:
-        return 0
+        return None
     return len(left) + len(pivots) // 2     # Return the position of the middle pivot 
 
 # Example array and pivot
