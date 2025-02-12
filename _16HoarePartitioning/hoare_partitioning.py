@@ -43,16 +43,13 @@ def hoare_partitioning_function(array, pivot_index):
         Auxiliary Space: O(1) 
         -   In place, no extra space is used
     """
-    if pivot_index >= len(array):
-        return None
-    
+    pivot = array[pivot_index]
     array[0], array[pivot_index] = array[pivot_index], array[0] #Move the pivot to the front of the array
     i = 0
     j = len(array) - 1
-
     while i <= j:
         # Move i right until we find an element larger than the pivot
-        while i <= j and array[i] <= array[pivot_index]:
+        while i <= j and array[i] <= array[0]:
             i = i + 1
         # Move j left until we find an element smaller than the pivot
         while i <= j and array[j] > array[0]:
@@ -61,5 +58,4 @@ def hoare_partitioning_function(array, pivot_index):
         if i <= j:
             array[i], array[j] = array[j], array[i] #swap elements on the wrong side
     array[0], array[j] = array[j], array[0] #swap the pivot into the correct position 
-
     return j #Return the position of the pivot
