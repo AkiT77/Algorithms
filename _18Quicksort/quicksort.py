@@ -42,7 +42,7 @@ def quicksort_function(array):
         -   Input space + auxiliary space = O(N) + O(1)
         
         Auxiliary Space: O(n) 
-        -   Due to the linear number of recursive calls
+        -   O(n) for the call stack + O(n) for array slicing = O(n)
     """
     if len(array) <= 1:
         return array
@@ -51,9 +51,8 @@ def quicksort_function(array):
     hi = len(array) - 1
     if hi > lo:
         mid = hoare_partitioning_function(array, lo)
-        right_array = quicksort_function(array[lo:mid])
-        left_array = quicksort_function(array[mid + 1:hi+1])
-    array = right_array + [array[mid]] + left_array
+        array[lo:mid] = quicksort_function(array[lo:mid])
+        array[mid + 1:hi+1] = quicksort_function(array[mid + 1:hi+1])
     return array
 
 array = [7, 3, 9, 4, 7, 5, 7, 8]
