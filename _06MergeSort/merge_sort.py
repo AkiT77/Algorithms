@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from _5Merge.merge import merge_function
+from _05Merge.merge import merge_function
 """
 Merge Sort is a divide and conquer algorithm. 
 Merge Sort Steps:
