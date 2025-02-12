@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from _8MergeAndCountSplitInversion.merge_and_count_split_inversion import merge_and_count_split_inversion_function
+from _08MergeAndCountSplitInversion.merge_and_count_split_inversion import merge_and_count_split_inversion_function
 
 """
 Sort and count split inversion function is an extension of the merge sort algorithm.
