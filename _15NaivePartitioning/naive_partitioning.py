@@ -14,7 +14,7 @@ def naive_partitioning_function(array, pivot):
         array (array[int]): The array that need to be sorted
        
     Returns:
-        -
+        int: the position of the middle pivot 
 
     Complexity:
         Time Complexity: O(N)   
