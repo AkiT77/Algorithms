@@ -31,7 +31,7 @@ def hoare_partitioning_function(array, pivot_index):
         pivot (int): The index of the element chosen as the pivot (note: pivot value is at array[pivot]).
        
     Returns:
-        -
+        int: the position of the pivot
 
     Complexity:
         Time Complexity: O(N)   
