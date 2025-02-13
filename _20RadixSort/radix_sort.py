@@ -10,7 +10,7 @@ Note:
     Counting Sort, on the other hand, is effective for sorting arrays with a limited range of integers.
 """
 
-def radix_sort(array, base, digits):
+def radix_sort_function(array, base, digits):
     """
     Sort the array.
 
@@ -35,6 +35,7 @@ def radix_sort(array, base, digits):
     """
     for digit in range(digits):
         radix_pass(array, base, digit)
+    return array
 
 def radix_pass(array, base, digit):
     """
@@ -94,5 +95,5 @@ def get_digit(number, base, digit):
 array = [170, 45, 75, 90, 802, 24, 2, 66]
 base = 10
 digits = 3 
-radix_sort(array, base, digits)
+radix_sort_function(array, base, digits)
 print(array)
