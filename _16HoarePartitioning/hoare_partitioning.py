@@ -57,5 +57,7 @@ def hoare_partitioning_function(array, pivot_index):
         #Swap elements if i is still less than or equal to j
         if i <= j:
             array[i], array[j] = array[j], array[i] #swap elements on the wrong side
+
     array[0], array[j] = array[j], array[0] #swap the pivot into the correct position 
     return j #Return the position of the pivot
+
