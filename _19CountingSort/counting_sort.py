@@ -1,5 +1,7 @@
 """
 1.  All elements are integers in the range 0 to u - 1.
+Note:   Radix Sort is useful for large arrays with a small number of digits, 
+        while Counting Sort is effective for arrays with a limited range of integers.
 """
 def counting_sort_function(array, u):
     """
