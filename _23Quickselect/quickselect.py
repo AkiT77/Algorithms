@@ -54,6 +54,6 @@ def quickselect_function(array, k):
     else:
         return array[k]
     
-array = [2, 5, 8, 9, 2, 18]
-value = quickselect_function(array, 2)
-print(value)
+# array = [2, 5, 8, 9, 2, 18]
+# value = quickselect_function(array, 2)
+# print(value)
