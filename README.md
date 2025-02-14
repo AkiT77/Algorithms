@@ -1,5 +1,6 @@
 # Algorithms
-A collection of common algorithms implemented in Python
+A collection of common algorithms implemented in Python.  
+This code demonstrates fundamental concepts, though some modifications may be necessary for specific practical applications.
 
 List of Algorithms  
  1 BinarySearch  
