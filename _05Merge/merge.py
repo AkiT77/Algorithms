@@ -36,14 +36,14 @@ def merge_function(A, B):
         Need extra space to store the merged result array
     """
     result = []
-    i = j = 0
-    n1 = len(A) - 1
-    n2 = len(B) - 1
-    while i <= n1 or j <= n2:
-        if j > n2 or (i <= n1 and A[i] <= B[j]):
-            result.append(A[i])
-            i += 1
+    pointer_a = pointer_b = 0
+    variable_frm_a = len(A) - 1
+    variable_frm_b = len(B) - 1
+    while pointer_a <= variable_frm_a or pointer_b <= variable_frm_b:
+        if pointer_b > variable_frm_b or (pointer_a <= variable_frm_a and A[pointer_a] <= B[pointer_b]):
+            result.append(A[pointer_a])
+            pointer_a += 1
         else:
-            result.append(B[j])
-            j += 1
+            result.append(B[pointer_b])
+            pointer_b += 1
     return result

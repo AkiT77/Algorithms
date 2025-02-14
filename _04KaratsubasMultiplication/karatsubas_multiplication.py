@@ -33,21 +33,21 @@ def karatsubas_multiplication_function(x, y):
     if 0 <= x < 10 and 0 <= y < 10:
         return x * y
     
-    n = max(len(str(x)), len(str(y)))
-    half = n // 2
-    xM = x // 10**half
-    xL = x % 10**half
-    yM = y // 10**half
-    yL = y % 10**half
+    max_len = max(len(str(x)), len(str(y)))
+    half_len = max_len // 2
+    x_high = x // 10**half_len  
+    x_low = x % 10**half_len   
+    y_high = y // 10**half_len  
+    y_low = y % 10**half_len    
 
-    u = xM + xL
-    v = yM + yL
-    a = karatsubas_multiplication_function(xM, yM)  
-    b = karatsubas_multiplication_function(xL, yL) 
-    c = karatsubas_multiplication_function(u, v)  
+    sum_x = x_high + x_low  # u -> sum_x
+    sum_y = y_high + y_low  # v -> sum_y
+    a = karatsubas_multiplication_function(x_high, y_high) 
+    b = karatsubas_multiplication_function(x_low, y_low)
+    c = karatsubas_multiplication_function(sum_x, sum_y)  
 
     z = c - a - b  
-    result = a * 10**(2*half) + z * 10**half + b
+    result = a * 10**(2*half_len) + z * 10**half_len + b
     return result
 
 a = 1234

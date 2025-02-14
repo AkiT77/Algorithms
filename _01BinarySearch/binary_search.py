@@ -24,14 +24,11 @@ def binary_search_function(array, key):
     hi = len(array) - 1
     while lo <= hi:
         mid = (lo + hi) // 2
-        print(f"Current state: lo={lo}, hi={hi}, mid={mid}, array[mid]={array[mid]}")
         if array[mid] == key:  # Key found
             return mid
         elif key > array[mid]:
-            print(f"Key {key} > array[mid] ({array[mid]}): Updating lo from {lo} to {mid+1}")
             lo = mid + 1 
         else:
-            print(f"Key {key} < array[mid] ({array[mid]}): Updating hi from {hi} to {mid-1}")
             hi = mid - 1
 
     if array[lo] == key:
