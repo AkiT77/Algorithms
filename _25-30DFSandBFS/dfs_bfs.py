@@ -80,7 +80,6 @@ class Graph:
             if vertex.component == None:
                 number_components += 1
                 self.dfs_26(vertex, number_components)
-
         components = []
         for vertex in self.vertices:
             components.append(vertex.component)
@@ -127,21 +126,23 @@ class Graph:
             (u, parent) = discovered.pop()
             u.visited = True
             for edge in u.edges:
-                if edge.visited and edge != parent:
+                v = edge.v
+                if v.visited and edge != parent:
                     return True
-                elif not edge.visited:
-                    discovered.append((edge, u)) 
+                elif not v.visited:
+                    discovered.append((v, u)) 
         return False
 
-    # #27 Recursive way
-    # def dfs_27(self, source, parent):
-    #     source.visited = True
-    #     for vertex in source.edges:
-    #         if not vertex.visited and self.dfs_27(vertex, source):
-    #             return True
-    #         elif vertex != parent:
-    #             return True
-    #     return False
+    #27 Recursive way
+    def dfs_27(self, source, parent):
+        source.visited = True
+        for edge in source.edges:
+            v = edge.v
+            if not v.visited and self.dfs_27(v, source):
+                return True
+            elif v != parent:
+                return True
+        return False
 
     #28
     def bfs(self, source):
@@ -163,10 +164,31 @@ class Graph:
                     v.discovered = True
         return return_bfs   
 
-    #29
+    #29 Single-source shortest paths in an unweighted graph
     def bfs_29(self, source):
-        pass
+        """
+        Computes the shortest paths from the source vertex s to every other reachable vertex in the graph.
+        """
+        discovered = [None] * len(self.vertices)
+        discovered.append(source)
+        source.distance = 0
+        while len(discovered) > 0:
+            u = discovered.pop(0)
+            for edge in u.edges:
+                v = edge.v
+                if v.distance == 'int':
+                    v.distance = u.distance + 1
+                    v.parent = u
+                    discovered.append(edge)
     
+    #30 Reconstruct shortest path
+    def get_path(self, source, destination):
+        path = [destination]
+        while source != destination:
+            path.append(destination.parent)
+            destination = destination.parent
+        return path.reverse()
+
 class Vertex:
     def __init__(self, id):
         self.id = id
@@ -174,6 +196,8 @@ class Vertex:
         self.discovered = False
         self.visited = False
         self.component = None
+        self.distance = 'inf'
+        self.parent = None
 
     def __str__(self):
         return_string = str(self.id)
@@ -191,7 +215,7 @@ class Vertex:
 class Edge:
     def __init__(self, u, v, w):
         self.u = u
-        self.v = V
+        self.v = v
         self.w = w
         
 if __name__ == "__main__":
