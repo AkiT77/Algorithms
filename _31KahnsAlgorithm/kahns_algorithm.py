@@ -72,7 +72,4 @@ class Edge:
         self.v = v
         
 if __name__ == "__main__":
-
-
-
-    
+    pass
