@@ -22,6 +22,19 @@ Breadth-First Search (BFS)
     BFS visits all nodes level by level, starting from the root.
 4.  BFS can be used in social networks to recommend friends by finding nodes (users) within a certain distance (degree of separation).
 
+The complexity regarding bfs and dfs algorithm:
+    Complexity:
+        Time Complexity (Best, Worst, Average): O(V + E)
+        -   The algorithm visits every vertex and edge exactly once.
+        -   V: Vertices
+        -   E: Edge
+        -   Note: If using Adjacency Matrix instead of Adjacency List, the time complexity will be O(V^2).
+
+        Space Complexity:  O(V)
+        
+        Auxiliary Space:  O(V)
+        -   The space complexity is determined by the space required for the DFS.
+
 """
 class Graph:
     def __init__(self, V):
@@ -29,16 +42,22 @@ class Graph:
         for index in range(V):
             self.vertices[index] = Vertex(index)
 
-    def __str__(self):
-        return_string = ""
-        for vertex in self.vertices:
-            return_string = return_string + "," + str(vertex)
-        return return_string
-
     #25
+    """
+    Even though DFS will visit all vertices and edges in a single connected component, 
+    it may not cover the entire graph if there are multiple disconnected components. 
+    The second loop ensures that every vertex in the graph is visited by restarting the DFS from any vertex that hasn't been visited, 
+    thus covering all components of the graph.
+    """
     def traverse(self):
         """
         Driver function that calls DFS until everything has been visited
+
+        Parameters:
+            -
+            
+        Returns:
+            -
         """
         for vertex in self.vertices:
             vertex.visited = False
@@ -52,6 +71,12 @@ class Graph:
         """
         Generic depth first search
         Function for DFS, starting from the source
+
+        Parameters:
+            source (int): The source vertex
+        
+        Returns:
+            array[int]: The visited list by order.
         """
         return_dfs = []
         discovered = [] #Implement this as a Stack.
@@ -89,6 +114,12 @@ class Graph:
     def dfs_26(self, source, comp_num):
         """
         Function for DFS, starting from the source
+        
+        Parameters:
+            source (int): The source vertex
+        
+        Returns:
+            array[int]: The visited list by order.
         """
         return_dfs = []
         discovered = [] #Implement this as a Stack.
