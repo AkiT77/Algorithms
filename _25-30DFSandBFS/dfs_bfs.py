@@ -46,11 +46,11 @@ class Graph:
         for vertex in self.vertices:
             if not vertex.visited:
                 self.dfs_25(vertex)
-        return 
 
     #25
     def dfs_25(self, source):
         """
+        Generic depth first search
         Function for DFS, starting from the source
         """
         return_dfs = []
@@ -112,36 +112,60 @@ class Graph:
         for vertex in self.vertices:
             vertex.visited = False
         for vertex in self.vertices:
-            pass
-
-    #27
-    def dfs_27(self, source, p):
-        source.visited = True
-        for vertex in self.vertices:
-            if vertex.visited and vertex != p:
-                return True
-            elif vertex != p and self.dfs_27(vertex, source) == True:
+            if not vertex.visited and self.dfs(vertex, None) == True:
                 return True
         return False
+        
+    #27
+    def dfs_27(self, source):
+        """
+        Function for DFS, starting from the source
+        """
+        discovered = [] #Implement this as a Stack.
+        discovered.append((source, None)) 
+        while len(discovered) > 0:
+            (u, parent) = discovered.pop()
+            u.visited = True
+            for edge in u.edges:
+                if edge.visited and edge != parent:
+                    return True
+                elif not edge.visited:
+                    discovered.append((edge, u)) 
+        return False
 
+    # #27 Recursive way
+    # def dfs_27(self, source, parent):
+    #     source.visited = True
+    #     for vertex in source.edges:
+    #         if not vertex.visited and self.dfs_27(vertex, source):
+    #             return True
+    #         elif vertex != parent:
+    #             return True
+    #     return False
 
+    #28
     def bfs(self, source):
-            """
-            Function for BFS, starting from the source
-            """
-            return_bfs = []
-            discovered = [] #Implement this as a Queue.
-            discovered.append(source)
-            while len(discovered) > 0:
-                u = discovered.pop(0)
-                u.visited = True
-                return_bfs.append(u)
-                for edge in u.edges:
-                    v = edge.v
-                    if v.discovered == False:
-                        discovered.append(v)
-                        v.discovered = True
-            return return_bfs   
+        """
+        Generic breadth first search
+        Function for BFS, starting from the source
+        """
+        return_bfs = []
+        discovered = [] #Implement this as a Queue.
+        discovered.append(source)
+        while len(discovered) > 0:
+            u = discovered.pop(0)
+            u.visited = True
+            return_bfs.append(u)
+            for edge in u.edges:
+                v = edge.v
+                if v.discovered == False:
+                    discovered.append(v)
+                    v.discovered = True
+        return return_bfs   
+
+    #29
+    def bfs_29(self, source):
+        pass
     
 class Vertex:
     def __init__(self, id):
