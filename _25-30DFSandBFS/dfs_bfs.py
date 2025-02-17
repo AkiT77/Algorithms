@@ -218,7 +218,8 @@ class Graph:
         while source != destination:
             path.append(destination.parent)
             destination = destination.parent
-        return path.reverse()
+        path = path.reverse()
+        return path
 
 class Vertex:
     def __init__(self, id):
