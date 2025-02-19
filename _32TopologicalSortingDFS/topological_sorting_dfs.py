@@ -14,6 +14,25 @@ class Graph:
 
     # Algorithm 32 Topological sorting using DFS
     def topological_sort_dfs(self):
+        """    
+        Parameters:
+            source (int): The source vertex
+        
+        Returns:
+            array[int]: The visited list by order.
+
+        Complexity:
+            Time Complexity (Best, Worst, Average): O(V + E)
+                -   The algorithm visits every vertex and edge exactly once.
+                -   V: Vertices
+                -   E: Edge
+                -   Note: If using Adjacency Matrix instead of Adjacency List, the time complexity will be O(V^2).
+
+            Space Complexity:  O(V)
+                
+            Auxiliary Space:  O(V)
+                -    appending V items to an array
+        """
         sorted_order = []
         for vertex in self.vertices:
             vertex.visited = False
@@ -25,6 +44,28 @@ class Graph:
         return sorted_order
 
     def dfs_32(self, source, sorted_order):
+        """    
+        Computing topological orderings.
+
+        Parameters:
+            source (int): The source vertex
+            sorted_order(array[int]): An array to store the visited list by topological ordering
+        
+        Returns:
+            array[int]: The visited list by order.
+
+        Complexity:
+            Time Complexity (Best, Worst, Average): O(V + E)
+                -   The algorithm visits every vertex and edge exactly once.
+                -   V: Vertices
+                -   E: Edge
+                -   Note: If using Adjacency Matrix instead of Adjacency List, the time complexity will be O(V^2).
+
+            Space Complexity:  O(V)
+                
+            Auxiliary Space:  O(V)
+                -    appending V items to an array
+        """
         discovered = []  
         discovered.append(source)
 
