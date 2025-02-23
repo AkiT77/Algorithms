@@ -32,28 +32,99 @@ Disjoint set forests:
             2.  UNION(u, v): To merge sets containing u and v, check if they're already in the same set. If not, link one root to the other, combining the two trees.
 
 """
-def connected_function(u, v):
-    """
-    Check whether the vertices u and v are connected.
-    """
-    return #to checking whether they have the same representative
-
 
 class Union:
     def __init__(self, n):
-        parent = []
-        rank = [0] * len(n)
+        self.parent = []
+        self.rank = [0] * len(n)
+
+    """
+    Algorithm 33 Connectivity check
+    """
+    def connected_function(self, u, v):
+        """
+        Check whether the vertices u and v are connected.
+
+        Parameters:
+            u (int): A node from the tree
+            v (int): A node from the tree
+        
+        Returns:
+            true/false
+
+        Complexity (base on find operation):
+            Time Complexity: 
+                Best Complexity: O(1)
+                    -   The node itself is the root node 
+                Worst Complexity: O(m log n)
+                    -   At most O(log n) per operation in total
+                    -   performing m operations
+
+            Space Complexity:  O(n)
+                -   For storing the parent array
+
+            Auxiliary Space:  O(m log n) 
+                -    For recursion stack in path compression
+        """
+        return self.find(u) == self.find(v) #to checking whether they have the same representative
 
     """
     Algorithms 34 Union-find using disjoint-set forests (without optimisations)
     """
     def find(self, x):
+        """    
+        Find the representative of x
+
+        Parameters:
+            x (int): A node from the tree
+        
+        Returns:
+            int: The root node of the tree
+
+        Complexity:
+            Time Complexity: 
+                Best Complexity: O(1)
+                    -   The node itself is the root node
+                Worst Complexity: O(m log n)
+                    -   At most O(log n) per operation in total
+                    -   performing m operations
+
+            Space Complexity:  O(n)
+                -   For storing the parent array
+
+            Auxiliary Space:  O(m log n) 
+                -    For recursion stack in path compression
+        """
         if self.parent[x] == x:
             return x
         else:
             self.find(self.parent[x])
 
     def union(self, x, y):
+        """    
+        link x tree to y tree, combining the two trees
+
+        Parameters:
+            x (int): A node from the tree
+            y (int): A node from the tree
+        
+        Returns:
+            -
+
+        Complexity:
+            Time Complexity: 
+                Best Complexity: O(1)
+                    -   The node itself is the root node
+                Worst Complexity: O(m log n)
+                    -   At most O(log n) per operation in total
+                    -   performing m operations
+
+            Space Complexity:  O(n)
+                -   For storing the parent array
+
+            Auxiliary Space:  O(m log n) 
+                -    For recursion stack in path compression(find operation)
+        """
         self.parent[self.find(x)] = self.find(y)
 
     """
@@ -63,7 +134,28 @@ class Union:
     making FIND operations faster over time.
     """
     def find(self, x):
-        """
+        """    
+        Find the representative of x
+
+        Parameters:
+            x (int): A node from the tree
+        
+        Returns:
+            int: The root node of the tree
+
+        Complexity:
+            Time Complexity: 
+                Best Complexity: O(1)
+                    -   The node itself is the root node
+                Worst Complexity: O(m log n)
+                    -   At most O(log n) per operation in total
+                    -   performing m operations
+
+            Space Complexity:  O(n)
+                -   For storing the parent array
+
+            Auxiliary Space:  O(m log n) 
+                -    For recursion stack in path compression
         """
         if self.parent[x] != x:
             self.parent[x] = self.find(self.parent[x])
@@ -76,6 +168,29 @@ class Union:
     This keeps the trees more balanced and reduces their height. 
     """
     def union_36(self, x, y):
+        """    
+        Find the representative of x
+
+        Parameters:
+            x (int): A node from the tree
+        
+        Returns:
+            int: The root node of the tree
+
+        Complexity:
+            Time Complexity: 
+                Best Complexity: O(1)
+                    -   The node itself is the root node
+                Worst Complexity: O(m log n)
+                    -   At most O(log n) per operation in total
+                    -   performing m operations
+
+            Space Complexity:  O(n)
+                -   For storing the parent array
+
+            Auxiliary Space:  O(m log n) 
+                -    For recursion stack in path compression
+        """
         x = self.find(x)
         y = self.find(y)
         if self.rank[x] < self.rank[y]:
